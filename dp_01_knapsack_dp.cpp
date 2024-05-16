@@ -50,7 +50,7 @@ void solve()
             }
             else
             {
-                dp[current_i][current_w] = max(dp[current_i - 1][current_w], +dp[current_i - 1][current_w - ws[current_i - 1]] + vs[current_i - 1]);
+                dp[current_i][current_w] = max(dp[current_i - 1][current_w], dp[current_i - 1][current_w - ws[current_i - 1]] + vs[current_i - 1]);
             }
         }
     }
