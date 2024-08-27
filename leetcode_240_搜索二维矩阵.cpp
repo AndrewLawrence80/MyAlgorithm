@@ -43,36 +43,20 @@ using namespace std;
 class Solution
 {
 public:
-    int searchLine(vector<int> &nums, int target)
-    {
-       int left = 0, right = nums.size() - 1, mid = (left + right) / 2;
-        while (left <= right)
-        {
-            if (nums[mid] == target)
-            {
-                return mid;
-            }
-            if (nums[mid] < target)
-            {
-                left = mid + 1;
-            }
-            else
-            {
-                right = mid - 1;
-            }
-            mid = (left + right) / 2;
-        }
-        return mid;
-    }
     bool searchMatrix(vector<vector<int>> &matrix, int target)
     {
         int m = matrix.size(), n = matrix[0].size();
-        // search first line
-        int idxCol = searchLine(matrix[0], target);
-        vector<int> t(m);
-        for (int i=0;i<m;++i){
-            t[i]=matrix[]
+        int current_row = 0, current_col = n - 1;
+        while (current_row < m && current_col >= 0)
+        {
+            if (matrix[current_row][current_col] == target)
+                return true;
+            else if (matrix[current_row][current_col] < target)
+                current_row++;
+            else
+                current_col--;
         }
+        return false;
     }
 };
 
